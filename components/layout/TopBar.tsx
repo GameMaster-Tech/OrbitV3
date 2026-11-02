@@ -93,10 +93,10 @@ export function TopBar({ title, subtitle, smartCards = [], onDismissCard, wallet
                   transition={{ duration: 0.15 }}
                   className="absolute right-0 top-11 w-80 z-40 max-h-96 overflow-y-auto"
                   style={{
-                    background: 'hsl(var(--orbit-surface))',
-                    border: '1px solid hsl(var(--orbit-border))',
+                    background: 'var(--surface)',
+                    border: '1px solid var(--border)',
                     borderRadius: 'var(--r-xl)',
-                    boxShadow: '0 20px 60px rgba(20,14,8,0.18), 0 4px 16px rgba(20,14,8,0.08)',
+                    boxShadow: '0 20px 60px rgba(15,17,23,0.25), 0 4px 16px rgba(15,17,23,0.12)',
                     padding: '14px',
                   }}
                 >
@@ -129,7 +129,7 @@ export function TopBar({ title, subtitle, smartCards = [], onDismissCard, wallet
             className="flex items-center gap-2 pl-1 pr-2 py-1 rounded-xl transition-all duration-150 hover:bg-orbit-elevated"
           >
             <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
-              style={{ background: 'linear-gradient(135deg, hsl(var(--orbit-primary)), hsl(var(--orbit-accent)))' }}>
+              style={{ background: 'linear-gradient(135deg, var(--primary), var(--accent))' }}>
               {initials}
             </div>
             {profile && (
@@ -151,15 +151,15 @@ export function TopBar({ title, subtitle, smartCards = [], onDismissCard, wallet
                   transition={{ duration: 0.15 }}
                   className="absolute right-0 top-11 w-52 z-40"
                   style={{
-                    background: 'hsl(var(--orbit-surface))',
-                    border: '1px solid hsl(var(--orbit-border))',
+                    background: 'var(--surface)',
+                    border: '1px solid var(--border)',
                     borderRadius: 'var(--r-xl)',
-                    boxShadow: '0 20px 60px rgba(20,14,8,0.18), 0 4px 16px rgba(20,14,8,0.08)',
+                    boxShadow: '0 20px 60px rgba(15,17,23,0.25), 0 4px 16px rgba(15,17,23,0.12)',
                     padding: '8px',
                   }}
                 >
                   {profile && (
-                    <div className="px-3 py-2.5 mb-1" style={{ borderBottom: '1px solid hsl(var(--orbit-border))' }}>
+                    <div className="px-3 py-2.5 mb-1" style={{ borderBottom: '1px solid var(--border)' }}>
                       <p className="font-sans text-sm font-semibold text-orbit-text">{profile.displayName}</p>
                       <p className="font-sans text-xs text-orbit-dim mt-0.5 truncate">{profile.email}</p>
                     </div>

@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import {
   Mail, Lock, User, MapPin, Eye, EyeOff,
-  ArrowRight, CheckCircle, Loader,
+  ArrowRight, CheckCircle, Loader, Sparkles,
 } from 'lucide-react'
 import { useAuthStore } from '@/stores/authStore'
 import { cn } from '@/lib/utils'
@@ -266,6 +266,16 @@ function AuthContent() {
             )}
           </AnimatePresence>
 
+          
+          {/* Demo option */}
+          <button
+            type="button"
+            onClick={() => router.push('/demo')}
+            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 dark:text-amber-400 font-sans text-sm font-semibold transition-all mt-4 mb-2"
+          >
+            <Sparkles className="w-4 h-4" />
+            Try Interactive Demo Mode
+          </button>
           {/* Switch mode */}
           <p className="font-sans text-sm text-orbit-muted text-center mt-6">
             {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
