@@ -1,0 +1,47 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid",
+        "profile": {
+          ".read": "auth != null",
+          ".write": "auth != null && auth.uid === $uid"
+        },
+        "inventory": {
+          ".indexOn": ["tab", "addedAt", "expiryDate"]
+        },
+        "expenses": {
+          ".indexOn": ["category", "date"]
+        },
+        "smartCards": {
+          ".indexOn": ["timestamp", "read"]
+        }
+      }
+    },
+    "communities": {
+      "$communityKey": {
+        "offers": {
+          ".read": "auth != null",
+          "$offerId": {
+            ".write": "auth != null && (!data.exists() || data.child('sellerId').val() === auth.uid || newData.child('buyerId').val() === auth.uid)"
+          }
+        }
+      }
+    },
+    "smartPairing": {
+      "matches": {
+        "$matchId": {
+          ".read": "auth != null && (data.child('userAId').val() === auth.uid || data.child('userBId').val() === auth.uid || !data.exists())",
+          ".write": "auth != null && (newData.child('userAId').val() === auth.uid || newData.child('userBId').val() === auth.uid || data.child('userAId').val() === auth.uid || data.child('userBId').val() === auth.uid)"
+        }
+      },
+      "swapRequests": {
+        "$requestId": {
+          ".read": "auth != null",
+          ".write": "auth != null"
+        }
+      }
+    }
+  }
+}
